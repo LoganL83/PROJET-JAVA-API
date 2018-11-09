@@ -228,8 +228,8 @@
 							"left": 24,
 							"top": 16,
 							"width": 344,
-							"height": 136,
-							"text": "En tant qu'utilisateur, je suis determiné a trouver la formation qui me convient."
+							"height": 97,
+							"text": "En tant qu'utilisateur, je suis déterminé a trouver la formation qui me convient."
 						},
 						{
 							"_type": "UMLUseCaseView",
@@ -976,6 +976,101 @@
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAFm+SsoQOnYeUc="
 							}
+						},
+						{
+							"_type": "UMLUseCaseSubjectView",
+							"_id": "AAAAAAFm+UDRYsoDOd8=",
+							"_parent": {
+								"$ref": "AAAAAAFm+SNU8+kcfsA="
+							},
+							"model": {
+								"$ref": "AAAAAAFm+UDRYsoBy04="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAFm+UDRYsoEXwY=",
+									"_parent": {
+										"$ref": "AAAAAAFm+UDRYsoDOd8="
+									},
+									"model": {
+										"$ref": "AAAAAAFm+UDRYsoBy04="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAFm+UDRYsoFq40=",
+											"_parent": {
+												"$ref": "AAAAAAFm+UDRYsoEXwY="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"height": 20
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAFm+UDRbMoGTF4=",
+											"_parent": {
+												"$ref": "AAAAAAFm+UDRYsoEXwY="
+											},
+											"font": "Arial;20;1",
+											"left": 245,
+											"top": 167,
+											"width": 670,
+											"height": 20,
+											"text": "Utilisateur déterminé"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAFm+UDRbMoH8+0=",
+											"_parent": {
+												"$ref": "AAAAAAFm+UDRYsoEXwY="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"width": 125,
+											"height": 20,
+											"text": "(from Model1)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAFm+UDRbMoI9Po=",
+											"_parent": {
+												"$ref": "AAAAAAFm+UDRYsoEXwY="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"height": 20,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;20;0",
+									"left": 240,
+									"top": 160,
+									"width": 680,
+									"height": 32,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAFm+UDRYsoFq40="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAFm+UDRbMoGTF4="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAFm+UDRbMoH8+0="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAFm+UDRbMoI9Po="
+									}
+								}
+							],
+							"font": "Arial;20;0",
+							"left": 240,
+							"top": 160,
+							"width": 680,
+							"height": 504,
+							"nameCompartment": {
+								"$ref": "AAAAAAFm+UDRYsoEXwY="
+							}
 						}
 					]
 				},
@@ -1046,6 +1141,14 @@
 							}
 						}
 					]
+				},
+				{
+					"_type": "UMLUseCaseSubject",
+					"_id": "AAAAAAFm+UDRYsoBy04=",
+					"_parent": {
+						"$ref": "AAAAAAFm+SNU8+kbRUI="
+					},
+					"name": "Utilisateur déterminé"
 				}
 			]
 		}
