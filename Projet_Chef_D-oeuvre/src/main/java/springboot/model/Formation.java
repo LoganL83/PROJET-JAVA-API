@@ -2,10 +2,12 @@ package springboot.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -14,7 +16,10 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 
 @Entity
+@Table (name = "formation")
 public class Formation {
+
+	
 
 	/**
 	 * Création du modèle Formation
@@ -22,27 +27,37 @@ public class Formation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column (name ="id")
 	private Long id;
 
 	@NotBlank
+	@Column (name ="nom")
 	private String nom; 
 
+	@Column (name ="url")
 	private String url; // url de la formation
 
+	@Column (name ="type_de_formation")
 	private String type; // alternance? cours du soir? etc...
 
 	@NotBlank
+	@Column (name ="localisation")
 	private String localisation; // où?
 
 	@NotBlank
+	@Column (name ="metier")
 	private String metier; // quel métier?
 
+	@Column (name ="certification")
 	private String certification; // si oui laquelle (hésite avec un boolean)
 
+	@Column (name ="date_de_formation")
 	private LocalDate date; // date de formation
 
+	@Column (name ="avis")
 	private String avis; // commentaires et note
 
+	@Column (name = "note")
 	private double note; // note de la formation
 
 	// génération des getters/setters
@@ -140,5 +155,12 @@ public class Formation {
 		this.date = date;
 		this.avis = avis;
 		this.note = note;
+	}
+	
+	@Override
+	public String toString() {
+		return "Formation [id=" + id + ", nom=" + nom + ", url=" + url + ", type=" + type + ", localisation="
+				+ localisation + ", metier=" + metier + ", certification=" + certification + ", date=" + date
+				+ ", avis=" + avis + ", note=" + note + "]";
 	}
 }

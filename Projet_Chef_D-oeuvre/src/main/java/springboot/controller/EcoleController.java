@@ -19,26 +19,26 @@ import org.springframework.web.bind.annotation.RestController;
 import springboot.model.Ecole;
 import springboot.repository.EcoleRepository;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:3306/taFormation?useSSL=false")
 @RestController
 @RequestMapping("/api/ecole")
-
 public class EcoleController {
 
 	@Autowired
 	private EcoleRepository ecoleRepository;
-
+	
+	/*
 	public EcoleController(EcoleRepository ecoleRepository) {
 		super();
 		this.ecoleRepository = ecoleRepository;
-	}
+	}*/
 
 	// je créé mon CREATE ecole
 
-	@CrossOrigin
+	//@CrossOrigin
 	@PostMapping(value = "/ecole")
 	Ecole addEcole(@Valid @RequestBody Ecole ecole) {
-		ecole = new Ecole(null, null, null, null, null, 0);
+		//ecole = new Ecole(null, null, null, null, null, 0);
 		// rajouter les arguments id, nom, url, localisation, avis, note);
 		return ecoleRepository.save(ecole);
 	}
@@ -46,7 +46,7 @@ public class EcoleController {
 	// je créé mon READ pour lire :
 	// toutes les écoles
 
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/ecole")
 	List<Ecole> getAllEcole() {
 		return ecoleRepository.findAll();
@@ -54,7 +54,7 @@ public class EcoleController {
 
 	// ou bien les READ par ID
 
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/ecole/{id}")
 	ResponseEntity<Ecole> getEcoleById(@PathVariable(value = "id") long id) {
 		Ecole ecole = ecoleRepository.findOne(id);
@@ -66,7 +66,7 @@ public class EcoleController {
 
 	// Je créé mon UPDATE de user
 
-	@CrossOrigin
+	//@CrossOrigin
 	@PutMapping("/ecole/{id}")
 	ResponseEntity<Ecole> updateEcole (@PathVariable(value = "id") long id, @Valid @RequestBody Ecole ecole) {
 		Ecole ecoleToUpdate = ecoleRepository.findOne(id);
@@ -100,11 +100,14 @@ public class EcoleController {
 	{
 		ecoleToUpdate.setNote(ecole.getNote());
 	}
+	Ecole updatedEcole = ecoleRepository.save(ecoleToUpdate);
+    return ResponseEntity.ok(updatedEcole);
 	}
+	
 
 	// Je créé mon DELETE école
 
-	@CrossOrigin
+	//@CrossOrigin
 	@DeleteMapping("/delete_ecole/{id}")
 	ResponseEntity<Ecole> deleteEcole(@PathVariable(value = "id") long id) {
 		Ecole ecole = ecoleRepository.findOne(id);
@@ -116,3 +119,4 @@ public class EcoleController {
 		return ResponseEntity.ok().build();
 	}
 }
+

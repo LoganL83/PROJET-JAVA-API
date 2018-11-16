@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>Projet_Chef_D-oeuvre</name>
-	<description>Projet chef d&#39;oeuvre</description>
+	<description>Projet chef d'oeuvre</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,10 +25,22 @@
 	</properties>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -39,16 +51,19 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -58,6 +73,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		
 	</build>
 
 	<repositories>
@@ -69,6 +85,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -77,6 +94,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
 	</repositories>
 
 	<pluginRepositories>
@@ -88,6 +106,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
+		
 		<pluginRepository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -96,6 +115,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		
 	</pluginRepositories>
 
 

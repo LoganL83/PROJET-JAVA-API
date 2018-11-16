@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springboot.model.Formation;
 import springboot.repository.FormationRepository;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:3306/taFormation?useSSL=false")
 @RestController
 @RequestMapping("/api/formation")
 public class FormationController {
@@ -33,10 +33,10 @@ public class FormationController {
 
 	// je créé mon CREATE formation
 
-	@CrossOrigin
+	//@CrossOrigin
 	@PostMapping(value = "/formation")
 	Formation addFormation(@Valid @RequestBody Formation formation) {
-		formation = new Formation(null, null, null, null, null, null, null, null, null, 0); 
+		//formation = new Formation(null, null, null, null, null, null, null, null, null, 0); 
 		// rajouter les arguments id, url, type, localisation, metier, certification, date, avis, note);
 		return formationRepository.save(formation);
 	}
@@ -44,7 +44,7 @@ public class FormationController {
 	// je créé mon READ pour lire : 
 	// toutes les formations
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/formations")
 	List<Formation> getAllActeur() {
 		return formationRepository.findAll();
@@ -52,7 +52,7 @@ public class FormationController {
 
 	// ou bien les READ par ID
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/formation/{id}")
 	ResponseEntity<Formation> getFormationById(@PathVariable(value = "id") long id) {
 		Formation formation = formationRepository.findOne(id);
@@ -64,7 +64,7 @@ public class FormationController {
 
 	// Je créé mon UPDATE de formation
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@PutMapping("/formation/{id}")
 	ResponseEntity<Formation> updateFormation (@PathVariable(value = "id") long id, @Valid @RequestBody Formation formation) {
 		Formation formationToUpdate = formationRepository.findOne(id);
@@ -111,9 +111,9 @@ public class FormationController {
 	
 	//Je créé mon DELETE formation
 	
-	 @CrossOrigin
-	    @DeleteMapping("/delete_formations/{id}")
-	    ResponseEntity<Formation> deleteFormation(@PathVariable(value = "id") long id) {
+	//@CrossOrigin
+	@DeleteMapping("/delete_formations/{id}")
+	ResponseEntity<Formation> deleteFormation(@PathVariable(value = "id") long id) {
 	        Formation formation = formationRepository.findOne(id);
 	        if (formation == null) {
 	            return ResponseEntity.notFound().build();

@@ -18,26 +18,22 @@ import org.springframework.web.bind.annotation.RestController;
 import springboot.model.User;
 import springboot.repository.UserRepository;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:3306/taFormation?useSSL=false") //?useSSL=false
 @RestController
 @RequestMapping("/api/user")
-
 public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
 
-	public UserController(UserRepository userRepository) {
-		super();
-		this.userRepository = userRepository;
-	}
+	
 	
 	// je créé mon CREATE user
 
-		@CrossOrigin
+		//@CrossOrigin
 		@PostMapping(value = "/user")
 		User addUser(@Valid @RequestBody User user) {
-			user = new User(null, null, null, 0, null, null, null, null, null); 
+			//user = new User(null, null, null, 0, null, null, null/*, null, null*/); 
 			// rajouter les arguments id, email, mot de passe, age, lieu, niveau d'étude, situation, liste écoles, liste formations);
 			return userRepository.save(user);
 		}
@@ -45,7 +41,7 @@ public class UserController {
 		// je créé mon READ pour lire : 
 		// tous les utilisateurs
 		
-		@CrossOrigin
+		//@CrossOrigin
 		@GetMapping("/user")
 		List<User> getAllUser() {
 			return userRepository.findAll();
@@ -53,7 +49,7 @@ public class UserController {
 
 		// ou bien les READ par ID
 		
-		@CrossOrigin
+		//@CrossOrigin
 		@GetMapping("/user/{id}")
 		ResponseEntity<User> getUserById(@PathVariable(value = "id") long id) {
 			User user = userRepository.findOne(id);
@@ -65,7 +61,7 @@ public class UserController {
 
 		// Je créé mon UPDATE de user
 		
-		@CrossOrigin
+		//@CrossOrigin
 		@PutMapping("/user/{id}")
 		ResponseEntity<User> updateUser (@PathVariable(value = "id") long id, @Valid @RequestBody User user) {
 			User userToUpdate = userRepository.findOne(id);
@@ -105,9 +101,9 @@ public class UserController {
 		
 		//Je créé mon DELETE user
 		
-		 @CrossOrigin
-		    @DeleteMapping("/people/{id}")
-		    ResponseEntity<User> deleteUser(@PathVariable(value = "id") long id) {
+		//@CrossOrigin
+		@DeleteMapping("/people/{id}")
+		ResponseEntity<User> deleteUser(@PathVariable(value = "id") long id) {
 		        User user = userRepository.findOne(id);
 		        if (user == null) {
 		            return ResponseEntity.notFound().build();
@@ -116,5 +112,10 @@ public class UserController {
 		        userRepository.delete(user);
 		        return ResponseEntity.ok().build();
 		    }
+		
+		public UserController(UserRepository userRepository) {
+			super();
+			this.userRepository = userRepository;
+		}
 	}
 

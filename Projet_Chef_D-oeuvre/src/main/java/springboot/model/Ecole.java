@@ -1,9 +1,11 @@
 package springboot.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -13,26 +15,35 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 
 @Entity
+@Table (name = "ecole")
 public class Ecole {
 	
+	
+
 	/**
 	 * Création du modèle Ecole
 	 */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column (name ="id")
 	private Long id;
 
 	@NotBlank
+	@Column (name = "nom")
 	private String nom;
 	
+	@Column (name = "url")
 	private String url;
 	
 	@NotBlank
+	@Column (name = "localisation")
 	private String localisation;
 	
+	@Column (name = "avis")
 	private String avis;
 	
+	@Column (name = "note")
 	private double note;
 	
 	
@@ -78,6 +89,7 @@ public class Ecole {
 	public void setAvis(String avis) {
 		this.avis = avis;
 	}
+	
 	public double getNote() {
 		return note;
 	}
@@ -94,5 +106,10 @@ public class Ecole {
 		this.localisation = localisation;
 		this.avis = avis;
 		this.note = note;
+	}
+	@Override
+	public String toString() {
+		return "Ecole [id=" + id + ", nom=" + nom + ", url=" + url + ", localisation=" + localisation + ", avis=" + avis
+				+ ", note=" + note + "]";
 	}
 }

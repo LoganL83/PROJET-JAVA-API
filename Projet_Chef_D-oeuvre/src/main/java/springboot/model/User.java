@@ -2,11 +2,13 @@ package springboot.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -17,27 +19,35 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 
 @Entity
+@Table(name = "user")
 public class User {
 
+	
 	/**
 	 * Création du modèle utilisateur.
 	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column (name ="id")
 	private Long id;
 
 	@Email
 	@NotBlank
+	@Column (name ="email")
 	private String email;
 
 	@NotBlank
+	@Column (name ="mot_de_passe")
 	private String mot_de_passe;
 
+	@Column (name ="age")
 	private int age;
 
+	@Column (name ="lieu")
 	private String lieu;
 
+	@Column (name ="niveau_etude")
 	private String niveau_etude;
 
 	/**
@@ -45,16 +55,18 @@ public class User {
 	 * travailleur indépendant,
 	 * 
 	 */
+	
+	@Column (name ="situation")
 	private String situation; //pourquoi pas utiliser une classe enum????
 
 	// requête par type de formation ou par école
-
+/*
 	@OneToMany(mappedBy = "user")
 	private List<Formation> formation;
 
 	@OneToMany(mappedBy = "user")
 	private List<Ecole> ecole;
-	
+	*/
 	
 	// génération des getters/setters
 
@@ -114,7 +126,7 @@ public class User {
 	public void setSituation(String situation) {
 		this.situation = situation;
 	}
-
+/*
 	public List<Formation> getFormation() {
 		return formation;
 	}
@@ -130,9 +142,9 @@ public class User {
 	public void setEcole(List<Ecole> ecole) {
 		this.ecole = ecole;
 	}
-	
-	public User(Long id, String email, String mot_de_passe, int age, String lieu, String niveau_etude, String situation,
-			List<Formation> formation, List<Ecole> ecole) {
+	*/
+	public User(Long id, String email, String mot_de_passe, int age, String lieu, String niveau_etude, String situation/*,
+			List<Formation> formation, List<Ecole> ecole*/) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -140,8 +152,15 @@ public class User {
 		this.age = age;
 		this.lieu = lieu;
 		this.niveau_etude = niveau_etude;
-		this.situation = situation;
+		this.situation = situation;/*
 		this.formation = formation;
-		this.ecole = ecole;
-	}
+		this.ecole = ecole;*/
+	}/*
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", mot_de_passe=" + mot_de_passe + ", age=" + age + ", lieu="
+				+ lieu + ", niveau_etude=" + niveau_etude + ", situation=" + situation + ", formation=" + formation
+				+ ", ecole=" + ecole + "]";
+	}*/
+
 }
