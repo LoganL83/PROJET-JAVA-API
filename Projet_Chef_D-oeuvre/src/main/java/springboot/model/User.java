@@ -1,7 +1,5 @@
 package springboot.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +28,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column (name ="id")
-	private Long id;
+	private Long idUser;
 
 	@Email
 	@NotBlank
@@ -71,12 +69,12 @@ public class User {
 	// génération des getters/setters
 
 	
-	public Long getId() {
-		return id;
+	public Long getIdUser() {
+		return idUser;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idUser = id;
 	}
 
 	public String getEmail() {
@@ -126,6 +124,8 @@ public class User {
 	public void setSituation(String situation) {
 		this.situation = situation;
 	}
+
+ }
 /*
 	public List<Formation> getFormation() {
 		return formation;
@@ -143,24 +143,5 @@ public class User {
 		this.ecole = ecole;
 	}
 	*/
-	public User(Long id, String email, String mot_de_passe, int age, String lieu, String niveau_etude, String situation/*,
-			List<Formation> formation, List<Ecole> ecole*/) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.mot_de_passe = mot_de_passe;
-		this.age = age;
-		this.lieu = lieu;
-		this.niveau_etude = niveau_etude;
-		this.situation = situation;/*
-		this.formation = formation;
-		this.ecole = ecole;*/
-	}/*
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", mot_de_passe=" + mot_de_passe + ", age=" + age + ", lieu="
-				+ lieu + ", niveau_etude=" + niveau_etude + ", situation=" + situation + ", formation=" + formation
-				+ ", ecole=" + ecole + "]";
-	}*/
-
-}
+	/*public User(Long id, String email, String mot_de_passe, int age, String lieu, String niveau_etude, String situation/*,
+			List<Formation> formation, List<Ecole> ecole*/

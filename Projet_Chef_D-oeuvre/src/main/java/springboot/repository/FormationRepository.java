@@ -1,8 +1,5 @@
 package springboot.repository;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +14,7 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
 	List<Formation> findByLocalisation(String localisation);
 	List<Formation> findByType(String type);
 	List<Formation> findByCertification(String certification);
-	List<Formation> fondByNote(double note);*/
+	List<Formation> findByNote(double note);
+	*/
 	
 }

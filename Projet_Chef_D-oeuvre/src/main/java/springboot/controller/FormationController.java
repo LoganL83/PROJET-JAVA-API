@@ -3,10 +3,8 @@ package springboot.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +18,7 @@ import springboot.repository.FormationRepository;
 
 //@CrossOrigin("http://localhost:3306/taFormation?useSSL=false")
 @RestController
-@RequestMapping("/api/formation")
+@RequestMapping("/api")
 public class FormationController {
 
 	@Autowired
@@ -65,7 +63,7 @@ public class FormationController {
 	// Je créé mon UPDATE de formation
 	
 	//@CrossOrigin
-	@PutMapping("/formation/{id}")
+	@PutMapping("/formation/id{id}")
 	ResponseEntity<Formation> updateFormation (@PathVariable(value = "id") long id, @Valid @RequestBody Formation formation) {
 		Formation formationToUpdate = formationRepository.findOne(id);
 		if (formationToUpdate == null) {
@@ -112,7 +110,7 @@ public class FormationController {
 	//Je créé mon DELETE formation
 	
 	//@CrossOrigin
-	@DeleteMapping("/delete_formations/{id}")
+	@DeleteMapping("/formation/id{id}")
 	ResponseEntity<Formation> deleteFormation(@PathVariable(value = "id") long id) {
 	        Formation formation = formationRepository.findOne(id);
 	        if (formation == null) {
@@ -122,4 +120,5 @@ public class FormationController {
 	        formationRepository.delete(formation);
 	        return ResponseEntity.ok().build();
 	    }
+	
 }

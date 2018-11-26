@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +19,7 @@ import springboot.repository.UserRepository;
 
 //@CrossOrigin("http://localhost:3306/taFormation?useSSL=false") //?useSSL=false
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
@@ -42,7 +41,7 @@ public class UserController {
 		// tous les utilisateurs
 		
 		//@CrossOrigin
-		@GetMapping("/user")
+		@GetMapping("/users")
 		List<User> getAllUser() {
 			return userRepository.findAll();
 		}
@@ -62,7 +61,7 @@ public class UserController {
 		// Je créé mon UPDATE de user
 		
 		//@CrossOrigin
-		@PutMapping("/user/{id}")
+		@PutMapping("/user/id{id}")
 		ResponseEntity<User> updateUser (@PathVariable(value = "id") long id, @Valid @RequestBody User user) {
 			User userToUpdate = userRepository.findOne(id);
 			if (userToUpdate == null) {
@@ -102,7 +101,7 @@ public class UserController {
 		//Je créé mon DELETE user
 		
 		//@CrossOrigin
-		@DeleteMapping("/people/{id}")
+		@DeleteMapping("/people/id{id}")
 		ResponseEntity<User> deleteUser(@PathVariable(value = "id") long id) {
 		        User user = userRepository.findOne(id);
 		        if (user == null) {
@@ -116,6 +115,11 @@ public class UserController {
 		public UserController(UserRepository userRepository) {
 			super();
 			this.userRepository = userRepository;
+		}
+		//Je créé mon DELETE ALL USERS
+		@DeleteMapping("/delete-users")
+		List<User> deleteAllUser() {
+			return userRepository.findAll();
 		}
 	}
 

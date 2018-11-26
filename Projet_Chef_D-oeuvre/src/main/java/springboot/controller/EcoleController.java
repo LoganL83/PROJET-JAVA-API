@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +20,7 @@ import springboot.repository.EcoleRepository;
 
 //@CrossOrigin("http://localhost:3306/taFormation?useSSL=false")
 @RestController
-@RequestMapping("/api/ecole")
+@RequestMapping("/api")
 public class EcoleController {
 
 	@Autowired
@@ -36,7 +35,7 @@ public class EcoleController {
 	// je créé mon CREATE ecole
 
 	//@CrossOrigin
-	@PostMapping(value = "/ecole")
+	@PostMapping(value = "/nvl-ecole")
 	Ecole addEcole(@Valid @RequestBody Ecole ecole) {
 		//ecole = new Ecole(null, null, null, null, null, 0);
 		// rajouter les arguments id, nom, url, localisation, avis, note);
@@ -67,7 +66,7 @@ public class EcoleController {
 	// Je créé mon UPDATE de user
 
 	//@CrossOrigin
-	@PutMapping("/ecole/{id}")
+	@PutMapping("/ecole/id{id}")
 	ResponseEntity<Ecole> updateEcole (@PathVariable(value = "id") long id, @Valid @RequestBody Ecole ecole) {
 		Ecole ecoleToUpdate = ecoleRepository.findOne(id);
 		if (ecoleToUpdate == null) {
@@ -108,7 +107,7 @@ public class EcoleController {
 	// Je créé mon DELETE école
 
 	//@CrossOrigin
-	@DeleteMapping("/delete_ecole/{id}")
+	@DeleteMapping("/ecole/id{id}")
 	ResponseEntity<Ecole> deleteEcole(@PathVariable(value = "id") long id) {
 		Ecole ecole = ecoleRepository.findOne(id);
 		if (ecole == null) {

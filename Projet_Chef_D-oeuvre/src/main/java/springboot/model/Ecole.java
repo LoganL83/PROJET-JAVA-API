@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Logan LANFUMEY
@@ -17,9 +20,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table (name = "ecole")
 public class Ecole {
-	
-	
-
 	/**
 	 * Création du modèle Ecole
 	 */
@@ -27,22 +27,28 @@ public class Ecole {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column (name ="id")
-	private Long id;
 
+	private Long idEcole;
+
+	@JsonIgnore
 	@NotBlank
 	@Column (name = "nom")
 	private String nom;
 	
+	@JsonIgnore
 	@Column (name = "url")
 	private String url;
 	
+	@JsonIgnore
 	@NotBlank
 	@Column (name = "localisation")
 	private String localisation;
 	
+	@JsonIgnore
 	@Column (name = "avis")
 	private String avis;
 	
+	@JsonIgnore
 	@Column (name = "note")
 	private double note;
 	
@@ -51,11 +57,11 @@ public class Ecole {
 	
 
 	public Long getId() {
-		return id;
+		return idEcole;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.idEcole = id;
 	}
 
 	public String getNom() {
@@ -98,18 +104,4 @@ public class Ecole {
 		this.note = note;
 	}
 
-	public Ecole(Long id, String nom, String url, String localisation, String avis, double note) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.url = url;
-		this.localisation = localisation;
-		this.avis = avis;
-		this.note = note;
-	}
-	@Override
-	public String toString() {
-		return "Ecole [id=" + id + ", nom=" + nom + ", url=" + url + ", localisation=" + localisation + ", avis=" + avis
-				+ ", note=" + note + "]";
-	}
 }
