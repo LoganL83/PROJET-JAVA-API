@@ -12,7 +12,7 @@ Ayant connu la recherche d'une formation pendant un moment, j'ai pu constater à
 
 ## Développer une application client/serveur :
 
-Maquettage de l'application : utilisation de marvelap pour travailler sur un wireframe (incluant le zoning) pour ce qui est des premières esquisses du projet concernant le visuel. Puis, pour réaliser la maquette cliquable pour ce qui est du test de l'expérience utilisateur.
+Maquettage de l'application : utilisation de marvel app pour travailler sur un wireframe (incluant le zoning) pour ce qui est des premières esquisses du projet concernant le visuel. Puis, pour réaliser la maquette cliquable pour ce qui est du test de l'expérience utilisateur.
 
 Conception d'une base de données : utilisation de star UML pour réaliser des diagrammes (Use Case, Diagram Class, ER Diagram) pour mieux visualiser ce dont auront besoin les utilisateurs ainsi que les développeurs et administrateurs).
 
